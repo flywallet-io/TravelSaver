@@ -117,9 +117,11 @@ Follow the above diagram:
 
      - cEUR: `0xd8763cba276a3738e6de85b4b3bf5fded6d6ca73`
      - TravelSaver: `0xCd58b4544d75CDA2f1F02CC4B423867689A3601A`
+     - [verified](https://explorer.celo.org/mainnet/address/0xCd58b4544d75CDA2f1F02CC4B423867689A3601A/read-contract#address-tabs)
 
      - cUSD: `0x765de816845861e75a25fca122bb6898b8b1282a`
      - TravelSaver: `0x207856B02b264b7C60fdE304658d683184254330`
+     - [verified](https://explorer.celo.org/mainnet/address/0x207856B02b264b7C60fdE304658d683184254330/read-contract#address-tabs)
 
      - operatorWalletAddress: `0x702D8Ef9255505378922F4A0206542a7DcF6947B`
 
