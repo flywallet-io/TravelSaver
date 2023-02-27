@@ -363,7 +363,7 @@ contract TravelSaver {
         paymentPlans[id] = PaymentPlan({
             travelPlanID: _travelPlanID,
             ID: id,
-            totalAmount: totalIntervals * amountPerInterval,
+            totalAmount: totalToTransfer,
             amountSent: 0,
             amountPerInterval: amountPerInterval,
             totalIntervals: totalIntervals,
