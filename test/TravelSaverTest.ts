@@ -53,7 +53,7 @@ describe("TravelSaver", function () {
       .to.emit(travelSaver, "CreatedTravelPlan")
       .withArgs(1, acc1.address, travelSaver.travelPlans);
 
-    const plan = await travelSaver.getTravelPlanDetails(1);
+    const plan = await travelSaver.travelPlans(1);
     expect(plan.contributedAmount).equal(0);
     expect(plan.owner).equal(acc1.address);
     expect(plan.operatorPlanID).equal(operatorPlanID);
@@ -75,9 +75,7 @@ describe("TravelSaver", function () {
       .to.emit(travelSaver, "ContributeToTravelPlan")
       .withArgs(1, acc1.address, 10);
 
-    expect((await travelSaver.getTravelPlanDetails(1)).contributedAmount).equal(
-      10
-    );
+    expect((await travelSaver.travelPlans(1)).contributedAmount).equal(10);
 
     expect(await token.balanceOf(acc1.address)).to.equal(90);
     expect(await token.balanceOf(travelSaver.address)).to.equal(10);
@@ -105,9 +103,7 @@ describe("TravelSaver", function () {
     expect(await token.balanceOf(travelSaver.address)).to.equal(5);
     expect(await token.balanceOf(operatorWallet.address)).to.equal(5);
 
-    expect((await travelSaver.getTravelPlanDetails(1)).contributedAmount).equal(
-      5
-    );
+    expect((await travelSaver.travelPlans(1)).contributedAmount).equal(5);
   });
 
   it("Should create PaymentPlan and make payments correcty", async function () {
@@ -152,9 +148,7 @@ describe("TravelSaver", function () {
     await time.increaseTo(sec60);
 
     await travelSaver.connect(acc1).runInterval(1);
-    expect(
-      (await travelSaver.getPaymentPlanDetails(1)).intervalsProcessed
-    ).equal(1);
+    expect((await travelSaver.paymentPlans(1)).intervalsProcessed).equal(1);
 
     await time.increaseTo(sec60 + sec60);
     await travelSaver.connect(acc1).runInterval(1);

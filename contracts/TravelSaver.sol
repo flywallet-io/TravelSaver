@@ -180,8 +180,9 @@ contract TravelSaver {
     uint256 travelPlanCount; // current number of contract's created travel-plans
     uint256 paymentPlanCount; // current number of contract's created payment-plans
 
-    mapping(uint256 => TravelPlan) public travelPlans; // TravelPlan reference by ID
-    mapping(uint256 => PaymentPlan) public paymentPlans; // PaymentPlan referenced by ID
+    mapping(uint256 => TravelPlan) public travelPlans; // TravelPlan reference by ID, returns Plans state
+
+    mapping(uint256 => PaymentPlan) public paymentPlans; // PaymentPlan referenced by ID, returns Plans state
 
     // mapping(uint256 => mapping(address => uint256)) public contributedAmount; // ID
 
@@ -194,32 +195,6 @@ contract TravelSaver {
     constructor(address ERC20_, address operatorWallet_) {
         token = IERC20(ERC20_);
         operatorWallet = operatorWallet_;
-    }
-
-    /**
-     ***** ***** VIEW-FUNCTIONS ***** *****
-     */
-
-    /**
-     * @notice receive Plans state
-     *
-     * @param ID uniqe plan's ID
-     */
-    function getTravelPlanDetails(
-        uint256 ID
-    ) external view returns (TravelPlan memory) {
-        return travelPlans[ID];
-    }
-
-    /**
-     * @notice receive plans state
-     *
-     * @param ID uniqe plan's ID
-     */
-    function getPaymentPlanDetails(
-        uint256 ID
-    ) external view returns (PaymentPlan memory) {
-        return paymentPlans[ID];
     }
 
     /**
