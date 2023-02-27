@@ -181,7 +181,8 @@ describe("TravelSaver", function () {
 
     await time.increaseTo(sec60 + sec60 + sec60 + sec60);
 
-    await travelSaver.connect(acc1).runIntervals([3, 4]);
+    await travelSaver.connect(acc1).runInterval(3);
+    await travelSaver.connect(acc1).runInterval(4);
   });
 
   it("Should create Travel and Payment Plans in one go correcty", async function () {

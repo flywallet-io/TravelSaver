@@ -3,8 +3,6 @@ pragma solidity ^0.8.17;
 
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-// import "/home/karolsudol/flywallet/TravelSaver/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol";
-
 /**
  * @title Travel Saving Vault with Recurring Payments Scheduler
  */
@@ -200,11 +198,9 @@ contract TravelSaver {
      *
      * @param ID uniqe plan's ID
      */
-    function getTravelPlanDetails(uint256 ID)
-        external
-        view
-        returns (TravelPlan memory)
-    {
+    function getTravelPlanDetails(
+        uint256 ID
+    ) external view returns (TravelPlan memory) {
         return travelPlans[ID];
     }
 
@@ -213,11 +209,9 @@ contract TravelSaver {
      *
      * @param ID uniqe plan's ID
      */
-    function getPaymentPlanDetails(uint256 ID)
-        external
-        view
-        returns (PaymentPlan memory)
-    {
+    function getPaymentPlanDetails(
+        uint256 ID
+    ) external view returns (PaymentPlan memory) {
         return paymentPlans[ID];
     }
 
@@ -265,10 +259,10 @@ contract TravelSaver {
      *
      * Emits a {CreatedTravelPlan} event.
      */
-    function createTravelPlan(uint256 operatorPlanID_, uint256 operatorUserID_)
-        public
-        returns (uint256)
-    {
+    function createTravelPlan(
+        uint256 operatorPlanID_,
+        uint256 operatorUserID_
+    ) public returns (uint256) {
         travelPlanCount += 1;
 
         travelPlans[travelPlanCount] = TravelPlan({
@@ -400,17 +394,6 @@ contract TravelSaver {
      */
     function runInterval(uint256 ID) external {
         _fulfillPaymentPlanInterval(ID);
-    }
-
-    /**
-     * @dev runIntervals executes scheduled payment as a batch
-     *
-     * @param IDs PaymentPlan existing UUIDs
-     */
-    function runIntervals(uint256[] memory IDs) external {
-        for (uint256 i = 0; i < IDs.length; i++) {
-            _fulfillPaymentPlanInterval(IDs[i]);
-        }
     }
 
     /**
