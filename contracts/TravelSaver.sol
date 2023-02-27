@@ -2,6 +2,7 @@
 pragma solidity ^0.8.17;
 
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/SafeERC20.sol";
 
 /**
  * @title Travel Saving Vault with Recurring Payments Scheduler
@@ -175,6 +176,7 @@ contract TravelSaver {
 
     address public immutable operatorWallet; // hardcoded address of the operator wallet where funds are send from travel-plan as external multisg wallet that is opearated and solely responsible for by the ticket issuer,
 
+    using SafeERC20 for IERC20;
     IERC20 public immutable token; // hardcoded address of the ERC20 EUR/USD PEGGED and NON DEFLACTIONARY token that serves a currency of the contract
 
     uint256 travelPlanCount; // current number of contract's created travel-plans
@@ -280,7 +282,7 @@ contract TravelSaver {
 
         plan.contributedAmount += amount;
 
-        token.transferFrom(msg.sender, address(this), amount);
+        token.safeTransferFrom(msg.sender, address(this), amount);
 
         emit ContributeToTravelPlan(ID, msg.sender, amount);
         emit Transfer(msg.sender, address(this), amount);
@@ -300,7 +302,7 @@ contract TravelSaver {
         require(plan.owner == msg.sender, "not owner");
         require(plan.contributedAmount >= value, "insufficient funds");
         plan.contributedAmount -= value;
-        token.transfer(operatorWallet, value);
+        token.safeTransfer(operatorWallet, value);
         plan.claimed = true;
         plan.claimedAt = block.timestamp;
         emit ClaimTravelPlan(ID, msg.sender, value);
@@ -437,7 +439,7 @@ contract TravelSaver {
         plan.contributedAmount += amount;
 
         // contributedAmount[ID][caller] += amount;
-        token.transferFrom(caller, address(this), amount);
+        token.safeTransferFrom(caller, address(this), amount);
 
         emit ContributeToTravelPlan(ID, caller, amount);
         emit Transfer(caller, address(this), amount);
