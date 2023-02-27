@@ -173,8 +173,9 @@ contract TravelSaver {
 
     // ***** ***** STATE-VARIABLES ***** *****
 
-    address public immutable operatorWallet; // hardcoded address of the operator wallet where funds are send from teh travel-plan
-    IERC20 public immutable token; // hardcoded address of the ERC20 stable token that serves a currency of the contract
+    address public immutable operatorWallet; // hardcoded address of the operator wallet where funds are send from travel-plan as external multisg wallet that is opearated and solely responsible for by the ticket issuer,
+
+    IERC20 public immutable token; // hardcoded address of the ERC20 EUR/USD PEGGED and NON DEFLACTIONARY token that serves a currency of the contract
 
     uint256 travelPlanCount; // current number of contract's created travel-plans
     uint256 paymentPlanCount; // current number of contract's created payment-plans
@@ -184,6 +185,12 @@ contract TravelSaver {
 
     // mapping(uint256 => mapping(address => uint256)) public contributedAmount; // ID
 
+    /**
+     * @param ERC20_ EUR or USD PEGGED, STABLE and NON DEFLACTIONARY tokens ONLY
+     *
+     * @param operatorWallet_ an external multisg wallet that is opearated and solely responsible for by the ticket issuer,
+     * user is to be guaranteed that once claimed funds to that address -> off chain purchase or refund must be processed by contract issuing party
+     */
     constructor(address ERC20_, address operatorWallet_) {
         token = IERC20(ERC20_);
         operatorWallet = operatorWallet_;
