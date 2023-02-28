@@ -178,8 +178,8 @@ Follow the above diagram:
 </p>
 <br/>
 
-# [LICENSE] (./LICENCE)
+# LICENSE
 
 Copyright (c) 2023-present Flywallet Inc.
 
-Licensed under [Apache-2.0](./LICENCE)
+Licensed under [Apache-2.0](LICENCE)
