@@ -182,4 +182,4 @@ Follow the above diagram:
 
 Copyright (c) 2023-present Flywallet Inc.
 
-Licensed under [Apache-2.0](./LICENCE)
+Licensed under [Apache-2.0](./LICENSE)
