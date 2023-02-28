@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: Apache-2.0
 pragma solidity ^0.8.17;
 
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
@@ -174,7 +174,7 @@ contract TravelSaver {
 
     // ***** ***** STATE-VARIABLES ***** *****
 
-    address public immutable operatorWallet; // hardcoded address of the operator wallet where funds are send from travel-plan as external multisg wallet that is opearated and solely responsible for by the ticket issuer,
+    address public immutable operatorWallet; // hardcoded address of the operator wallet where funds are send from travel-plan as external multisg wallet that is opearated and solely responsible for by the ticket issuer
 
     using SafeERC20 for IERC20;
     IERC20 public immutable token; // hardcoded address of the ERC20 EUR/USD PEGGED and NON DEFLACTIONARY token that serves a currency of the contract

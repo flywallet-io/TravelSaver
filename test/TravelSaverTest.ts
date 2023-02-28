@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+
 import { time, loadFixture } from "@nomicfoundation/hardhat-network-helpers";
 import { anyValue } from "@nomicfoundation/hardhat-chai-matchers/withArgs";
 import { expect } from "chai";

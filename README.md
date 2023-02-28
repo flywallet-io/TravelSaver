@@ -1,9 +1,15 @@
 # Travel Saver
 
-## WEB3 travel plan payment subsription escrow service
+a WEB3 travel plan payment subsription wallet service
 
-- smart contracts
+## Included:
+
+- smart contract
+- smart contract test - coverage and audit
 - deployment tools (muliple networks)
+
+## NotIncluded:
+
 - off chain integrators
 - real time RPC log consumer and ETL services
 
@@ -71,7 +77,7 @@ Follow the above diagram:
 
 - `claimTravelPlan(uint256 UUID, uint256 amount)`
 
-- `getTravelPlanDetails(uint256 UUID) returns (TravelPlan)`
+- `travelPlanDetails(uint256 UUID) returns (TravelPlan)`
 
 ## PaymentPlan:
 
@@ -79,11 +85,9 @@ Follow the above diagram:
 
 - `cancelPaymentPlan(uint256 UUID)`
 
-- `getPaymentPlanDetails(uint256 UUID) returns (PaymentPlan)`
+- `paymentPlanDetails(uint256 UUID) returns (PaymentPlan)`
 
 - `runInterval(uint256 UUID)`
-
-- `runIntervals(uint256[] memory UUIDs)`
 
 ## TravelPaymentPlan
 
@@ -133,10 +137,6 @@ Follow the above diagram:
      - TravelSaver: `0x54713127daf2bFD5129C980Ea800E3fCD616B547`
      - [verified](https://mumbai.polygonscan.com/address/0x54713127daf2bFD5129C980Ea800E3fCD616B547#code)
 
-     - DAI: `0x001B3B4d0F3714Ca98ba10F6042DaEbF0B1B7b6F`
-     - TravelSaver: `0x62686d2a160a649d5F4EaB43F0964E6e8a6281C1`
-     - [verified](https://mumbai.polygonscan.com/address/0x62686d2a160a649d5F4EaB43F0964E6e8a6281C1#code)
-
      - operatorWalletAddress: `0x2b5Fc7f001a173D49B29e34993bB2feF41Ccd803`
 
    - mainnet:
@@ -145,42 +145,12 @@ Follow the above diagram:
      - TravelSaver: `0x6Bd249181BAdf2a389296D68f80A8B1c74fDDAC1`
      - [verified](https://polygonscan.com/address/0x6Bd249181BAdf2a389296D68f80A8B1c74fDDAC1#code)
 
-     - DAI: `0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063`
-     - TravelSaver: `0xa15282Fd8e39b3bF7c7bf94753c4a9Aa52060226`
-     - [verified](https://polygonscan.com/address/0xa15282Fd8e39b3bF7c7bf94753c4a9Aa52060226#code)
-
-     - operatorWalletAddress: `0x702D8Ef9255505378922F4A0206542a7DcF6947B`
-
-3. - BSC
-
-   - testnet:
-
-     - USDT: `0x337610d27c682E347C9cD60BD4b3b107C9d34dDd`
-     - TravelSaver: `0x54713127daf2bFD5129C980Ea800E3fCD616B547`
-     - [verified](https://testnet.bscscan.com/address/0x54713127daf2bFD5129C980Ea800E3fCD616B547#code)
-
-     - BUSD: `0xeD24FC36d5Ee211Ea25A80239Fb8C4Cfd80f12Ee`
-     - TravelSaver: `0x62686d2a160a649d5F4EaB43F0964E6e8a6281C1`
-     - [verified](https://testnet.bscscan.com/address/0x62686d2a160a649d5F4EaB43F0964E6e8a6281C1#code)
-
-     - operatorWalletAddress: `0x2b5Fc7f001a173D49B29e34993bB2feF41Ccd803`
-
-   - mainnet:
-
-     - USDT: `0x55d398326f99059ff775485246999027b3197955`
-     - TravelSaver: `0x6Bd249181BAdf2a389296D68f80A8B1c74fDDAC1`
-     - [verified](https://bscscan.com/address/0x6Bd249181BAdf2a389296D68f80A8B1c74fDDAC1#code)
-
-     - BUSD: `0xe9e7cea3dedca5984780bafc599bd69add087d56`
-     - TravelSaver: `0xa15282Fd8e39b3bF7c7bf94753c4a9Aa52060226`
-     - [verified](https://bscscan.com/address/0xa15282Fd8e39b3bF7c7bf94753c4a9Aa52060226#code)
-
      - operatorWalletAddress: `0x702D8Ef9255505378922F4A0206542a7DcF6947B`
 
 ## TravelSaver constructor params:
 
-- `address _IERC20` USD ERC20 network specific address.
-- `address _operatorWallet` wallet address where all funds will be transfered when saving plan is sucessful.
+- `address _IERC20` hardcoded address of the ERC20 EUR/USD PEGGED and NON DEFLACTIONARY token that serves a currency of the contract
+- `address _operatorWallet` wallet address where all funds will be transfered when saving plan is sucessful, hardcoded address of the operator wallet where funds are send from travel-plan as external multisg wallet that is opearated and solely responsible for by the ticket issuer
 
 ## Re-Deploying to a networks, tests and scripts:
 
@@ -190,7 +160,7 @@ Follow the above diagram:
 
 - `npx hardhat run --network {NETWORK} scripts/deploy-{NETWORK}-{BRANCH}-{ERC20}.ts`
 
-## Architecture: all services
+## Architecture: all services off and onchain
 
 <br/>
 <p align="center">
@@ -207,3 +177,9 @@ Follow the above diagram:
 </a>
 </p>
 <br/>
+
+# [LICENSE] (./LICENCE)
+
+Copyright (c) 2023-present Flywallet Inc.
+
+Licensed under [Apache-2.0](./LICENCE)
