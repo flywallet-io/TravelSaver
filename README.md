@@ -109,11 +109,11 @@ Follow the above diagram:
 
      - cEUR: `0x10c892A6EC43a53E45D0B916B4b7D383B1b78C0F`
      - TravelSaver: `0x50d0ceF61c0cf54b0EF56Bc8CC5e4E692055D4Fc`
-     - [verified](https://explorer.celo.org/alfajores/address/0x16e5D0988Ae96bAe6A3B72A9137854BB337C632e/contracts)
+     - [verified](https://explorer.celo.org/alfajores/address/0x50d0ceF61c0cf54b0EF56Bc8CC5e4E692055D4Fc/read-contract#address-tabs)
 
-     - cUSD: `0x765de816845861e75a25fca122bb6898b8b1282a`
-     - TravelSaver: `0x54713127daf2bFD5129C980Ea800E3fCD616B547`
-     - [verified](https://explorer.celo.org/alfajores/address/0x54713127daf2bFD5129C980Ea800E3fCD616B547/contracts)
+     - cUSD: `0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1`
+     - TravelSaver: `0xB0C5D98c7CB7907b54719B0848c46699c6ffa4D8`
+     - [verified](https://explorer.celo.org/alfajores/address/0xB0C5D98c7CB7907b54719B0848c46699c6ffa4D8/read-contract#address-tabs)
 
      - operatorWalletAddress: `0x2b5Fc7f001a173D49B29e34993bB2feF41Ccd803`
 
