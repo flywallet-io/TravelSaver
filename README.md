@@ -120,12 +120,12 @@ Follow the above diagram:
    - mainnet:
 
      - cEUR: `0xd8763cba276a3738e6de85b4b3bf5fded6d6ca73`
-     - TravelSaver: `0xCd58b4544d75CDA2f1F02CC4B423867689A3601A`
-     - [verified](https://explorer.celo.org/mainnet/address/0xCd58b4544d75CDA2f1F02CC4B423867689A3601A/read-contract#address-tabs)
+     - TravelSaver: `0x46c4F585B1948f21E733C5e08e55330de22f9119`
+     - [verified](https://explorer.celo.org/mainnet/address/0x46c4F585B1948f21E733C5e08e55330de22f9119/read-contract#address-tabs)
 
      - cUSD: `0x765de816845861e75a25fca122bb6898b8b1282a`
-     - TravelSaver: `0x207856B02b264b7C60fdE304658d683184254330`
-     - [verified](https://explorer.celo.org/mainnet/address/0x207856B02b264b7C60fdE304658d683184254330/read-contract#address-tabs)
+     - TravelSaver: `0xa1A612F94923C9ed70f9bC124BC035b3bFd6b00e`
+     - [verified](https://explorer.celo.org/mainnet/address/0xa1A612F94923C9ed70f9bC124BC035b3bFd6b00e/read-contract#address-tabs)
 
      - operatorWalletAddress: `0x2e7997BaF30435d70b5a2EC3eA334975b16C5204`
 
