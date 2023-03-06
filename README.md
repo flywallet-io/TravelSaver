@@ -142,8 +142,8 @@ Follow the above diagram:
    - mainnet:
 
      - USDC: `0x2791bca1f2de4661ed88a30c99a7a9449aa84174`
-     - TravelSaver: `0x6Bd249181BAdf2a389296D68f80A8B1c74fDDAC1`
-     - [verified](https://polygonscan.com/address/0x6Bd249181BAdf2a389296D68f80A8B1c74fDDAC1#code)
+     - TravelSaver: `0x207856B02b264b7C60fdE304658d683184254330`
+     - [verified](https://polygonscan.com/address/0x207856B02b264b7C60fdE304658d683184254330#readContract)
 
      - operatorWalletAddress: `0x383bC9Eae0DfAEC56d10a12BaF23603701A4A004`
 
