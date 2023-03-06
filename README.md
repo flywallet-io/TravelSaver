@@ -108,7 +108,7 @@ Follow the above diagram:
    - alfajores:
 
      - cEUR: `0x10c892A6EC43a53E45D0B916B4b7D383B1b78C0F`
-     - TravelSaver: ``
+     - TravelSaver: `0x50d0ceF61c0cf54b0EF56Bc8CC5e4E692055D4Fc`
      - [verified](https://explorer.celo.org/alfajores/address/0x16e5D0988Ae96bAe6A3B72A9137854BB337C632e/contracts)
 
      - cUSD: `0x765de816845861e75a25fca122bb6898b8b1282a`
