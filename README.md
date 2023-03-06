@@ -108,7 +108,7 @@ Follow the above diagram:
    - alfajores:
 
      - cEUR: `0x10c892A6EC43a53E45D0B916B4b7D383B1b78C0F`
-     - TravelSaver: `0x16e5D0988Ae96bAe6A3B72A9137854BB337C632e`
+     - TravelSaver: ``
      - [verified](https://explorer.celo.org/alfajores/address/0x16e5D0988Ae96bAe6A3B72A9137854BB337C632e/contracts)
 
      - cUSD: `0x765de816845861e75a25fca122bb6898b8b1282a`
@@ -127,7 +127,7 @@ Follow the above diagram:
      - TravelSaver: `0x207856B02b264b7C60fdE304658d683184254330`
      - [verified](https://explorer.celo.org/mainnet/address/0x207856B02b264b7C60fdE304658d683184254330/read-contract#address-tabs)
 
-     - operatorWalletAddress: `0x702D8Ef9255505378922F4A0206542a7DcF6947B`
+     - operatorWalletAddress: `0x2e7997BaF30435d70b5a2EC3eA334975b16C5204`
 
 2. - Polygon
 
@@ -145,7 +145,7 @@ Follow the above diagram:
      - TravelSaver: `0x6Bd249181BAdf2a389296D68f80A8B1c74fDDAC1`
      - [verified](https://polygonscan.com/address/0x6Bd249181BAdf2a389296D68f80A8B1c74fDDAC1#code)
 
-     - operatorWalletAddress: `0x702D8Ef9255505378922F4A0206542a7DcF6947B`
+     - operatorWalletAddress: `0x383bC9Eae0DfAEC56d10a12BaF23603701A4A004`
 
 ## TravelSaver constructor params:
 
