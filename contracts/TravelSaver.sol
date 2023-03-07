@@ -1,9 +1,8 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: Apache-2.0
 pragma solidity ^0.8.17;
 
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-
-// import "/home/karolsudol/flywallet/TravelSaver/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 
 /**
  * @title Travel Saving Vault with Recurring Payments Scheduler
@@ -175,50 +174,29 @@ contract TravelSaver {
 
     // ***** ***** STATE-VARIABLES ***** *****
 
-    address public immutable operatorWallet; // hardcoded address of the operator wallet where funds are send from teh travel-plan
-    IERC20 public immutable token; // hardcoded address of the ERC20 stable token that serves a currency of the contract
+    address public immutable operatorWallet; // hardcoded address of the operator wallet where funds are send from travel-plan as external multisg wallet that is opearated and solely responsible for by the ticket issuer
+
+    using SafeERC20 for IERC20;
+    IERC20 public immutable token; // hardcoded address of the ERC20 EUR/USD PEGGED and NON DEFLACTIONARY token that serves a currency of the contract
 
     uint256 travelPlanCount; // current number of contract's created travel-plans
     uint256 paymentPlanCount; // current number of contract's created payment-plans
 
-    mapping(uint256 => TravelPlan) public travelPlans; // TravelPlan reference by ID
-    mapping(uint256 => PaymentPlan) public paymentPlans; // PaymentPlan referenced by ID
+    mapping(uint256 => TravelPlan) public travelPlans; // TravelPlan reference by ID, returns Plans state
+
+    mapping(uint256 => PaymentPlan) public paymentPlans; // PaymentPlan referenced by ID, returns Plans state
 
     // mapping(uint256 => mapping(address => uint256)) public contributedAmount; // ID
 
+    /**
+     * @param ERC20_ EUR or USD PEGGED, STABLE and NON DEFLACTIONARY tokens ONLY
+     *
+     * @param operatorWallet_ an external multisg wallet that is opearated and solely responsible for by the ticket issuer,
+     * user is to be guaranteed that once claimed funds to that address -> off chain purchase or refund must be processed by contract issuing party
+     */
     constructor(address ERC20_, address operatorWallet_) {
         token = IERC20(ERC20_);
         operatorWallet = operatorWallet_;
-    }
-
-    /**
-     ***** ***** VIEW-FUNCTIONS ***** *****
-     */
-
-    /**
-     * @notice receive Plans state
-     *
-     * @param ID uniqe plan's ID
-     */
-    function getTravelPlanDetails(uint256 ID)
-        external
-        view
-        returns (TravelPlan memory)
-    {
-        return travelPlans[ID];
-    }
-
-    /**
-     * @notice receive plans state
-     *
-     * @param ID uniqe plan's ID
-     */
-    function getPaymentPlanDetails(uint256 ID)
-        external
-        view
-        returns (PaymentPlan memory)
-    {
-        return paymentPlans[ID];
     }
 
     /**
@@ -265,10 +243,10 @@ contract TravelSaver {
      *
      * Emits a {CreatedTravelPlan} event.
      */
-    function createTravelPlan(uint256 operatorPlanID_, uint256 operatorUserID_)
-        public
-        returns (uint256)
-    {
+    function createTravelPlan(
+        uint256 operatorPlanID_,
+        uint256 operatorUserID_
+    ) public returns (uint256) {
         travelPlanCount += 1;
 
         travelPlans[travelPlanCount] = TravelPlan({
@@ -304,7 +282,7 @@ contract TravelSaver {
 
         plan.contributedAmount += amount;
 
-        token.transferFrom(msg.sender, address(this), amount);
+        token.safeTransferFrom(msg.sender, address(this), amount);
 
         emit ContributeToTravelPlan(ID, msg.sender, amount);
         emit Transfer(msg.sender, address(this), amount);
@@ -324,7 +302,7 @@ contract TravelSaver {
         require(plan.owner == msg.sender, "not owner");
         require(plan.contributedAmount >= value, "insufficient funds");
         plan.contributedAmount -= value;
-        token.transfer(operatorWallet, value);
+        token.safeTransfer(operatorWallet, value);
         plan.claimed = true;
         plan.claimedAt = block.timestamp;
         emit ClaimTravelPlan(ID, msg.sender, value);
@@ -362,7 +340,7 @@ contract TravelSaver {
         paymentPlans[id] = PaymentPlan({
             travelPlanID: _travelPlanID,
             ID: id,
-            totalAmount: totalIntervals * amountPerInterval,
+            totalAmount: totalToTransfer,
             amountSent: 0,
             amountPerInterval: amountPerInterval,
             totalIntervals: totalIntervals,
@@ -400,17 +378,6 @@ contract TravelSaver {
      */
     function runInterval(uint256 ID) external {
         _fulfillPaymentPlanInterval(ID);
-    }
-
-    /**
-     * @dev runIntervals executes scheduled payment as a batch
-     *
-     * @param IDs PaymentPlan existing UUIDs
-     */
-    function runIntervals(uint256[] memory IDs) external {
-        for (uint256 i = 0; i < IDs.length; i++) {
-            _fulfillPaymentPlanInterval(IDs[i]);
-        }
     }
 
     /**
@@ -472,7 +439,7 @@ contract TravelSaver {
         plan.contributedAmount += amount;
 
         // contributedAmount[ID][caller] += amount;
-        token.transferFrom(caller, address(this), amount);
+        token.safeTransferFrom(caller, address(this), amount);
 
         emit ContributeToTravelPlan(ID, caller, amount);
         emit Transfer(caller, address(this), amount);

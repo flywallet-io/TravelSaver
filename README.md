@@ -1,9 +1,15 @@
 # Travel Saver
 
-## WEB3 travel plan payment subsription escrow service
+a WEB3 travel plan payment subsription wallet service
 
-- smart contracts
+## Included:
+
+- smart contract
+- smart contract test - coverage and audit
 - deployment tools (muliple networks)
+
+## NotIncluded:
+
 - off chain integrators
 - real time RPC log consumer and ETL services
 
@@ -71,7 +77,7 @@ Follow the above diagram:
 
 - `claimTravelPlan(uint256 UUID, uint256 amount)`
 
-- `getTravelPlanDetails(uint256 UUID) returns (TravelPlan)`
+- `travelPlanDetails(uint256 UUID) returns (TravelPlan)`
 
 ## PaymentPlan:
 
@@ -79,11 +85,9 @@ Follow the above diagram:
 
 - `cancelPaymentPlan(uint256 UUID)`
 
-- `getPaymentPlanDetails(uint256 UUID) returns (PaymentPlan)`
+- `paymentPlanDetails(uint256 UUID) returns (PaymentPlan)`
 
 - `runInterval(uint256 UUID)`
-
-- `runIntervals(uint256[] memory UUIDs)`
 
 ## TravelPaymentPlan
 
@@ -104,83 +108,49 @@ Follow the above diagram:
    - alfajores:
 
      - cEUR: `0x10c892A6EC43a53E45D0B916B4b7D383B1b78C0F`
-     - TravelSaver: `0x16e5D0988Ae96bAe6A3B72A9137854BB337C632e`
-     - [verified](https://explorer.celo.org/alfajores/address/0x16e5D0988Ae96bAe6A3B72A9137854BB337C632e/contracts)
+     - TravelSaver: `0x50d0ceF61c0cf54b0EF56Bc8CC5e4E692055D4Fc`
+     - [verified](https://explorer.celo.org/alfajores/address/0x50d0ceF61c0cf54b0EF56Bc8CC5e4E692055D4Fc/read-contract#address-tabs)
 
-     - cUSD: `0x765de816845861e75a25fca122bb6898b8b1282a`
-     - TravelSaver: `0x54713127daf2bFD5129C980Ea800E3fCD616B547`
-     - [verified](https://explorer.celo.org/alfajores/address/0x54713127daf2bFD5129C980Ea800E3fCD616B547/contracts)
+     - cUSD: `0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1`
+     - TravelSaver: `0xB0C5D98c7CB7907b54719B0848c46699c6ffa4D8`
+     - [verified](https://explorer.celo.org/alfajores/address/0xB0C5D98c7CB7907b54719B0848c46699c6ffa4D8/read-contract#address-tabs)
 
      - operatorWalletAddress: `0x2b5Fc7f001a173D49B29e34993bB2feF41Ccd803`
 
    - mainnet:
 
      - cEUR: `0xd8763cba276a3738e6de85b4b3bf5fded6d6ca73`
-     - TravelSaver: `0xCd58b4544d75CDA2f1F02CC4B423867689A3601A`
-     - [verified](https://explorer.celo.org/mainnet/address/0xCd58b4544d75CDA2f1F02CC4B423867689A3601A/read-contract#address-tabs)
+     - TravelSaver: `0x46c4F585B1948f21E733C5e08e55330de22f9119`
+     - [verified](https://explorer.celo.org/mainnet/address/0x46c4F585B1948f21E733C5e08e55330de22f9119/read-contract#address-tabs)
 
      - cUSD: `0x765de816845861e75a25fca122bb6898b8b1282a`
-     - TravelSaver: `0x207856B02b264b7C60fdE304658d683184254330`
-     - [verified](https://explorer.celo.org/mainnet/address/0x207856B02b264b7C60fdE304658d683184254330/read-contract#address-tabs)
+     - TravelSaver: `0xa1A612F94923C9ed70f9bC124BC035b3bFd6b00e`
+     - [verified](https://explorer.celo.org/mainnet/address/0xa1A612F94923C9ed70f9bC124BC035b3bFd6b00e/read-contract#address-tabs)
 
-     - operatorWalletAddress: `0x702D8Ef9255505378922F4A0206542a7DcF6947B`
+     - operatorWalletAddress: `0x2e7997BaF30435d70b5a2EC3eA334975b16C5204`
 
 2. - Polygon
 
    - mumbai:
 
      - USDC: `0xe11A86849d99F524cAC3E7A0Ec1241828e332C62`
-     - TravelSaver: `0x54713127daf2bFD5129C980Ea800E3fCD616B547`
-     - [verified](https://mumbai.polygonscan.com/address/0x54713127daf2bFD5129C980Ea800E3fCD616B547#code)
-
-     - DAI: `0x001B3B4d0F3714Ca98ba10F6042DaEbF0B1B7b6F`
-     - TravelSaver: `0x62686d2a160a649d5F4EaB43F0964E6e8a6281C1`
-     - [verified](https://mumbai.polygonscan.com/address/0x62686d2a160a649d5F4EaB43F0964E6e8a6281C1#code)
+     - TravelSaver: `0x262997A234F193182ab87A63d4AE2D7273BE7e21`
+     - [verified](https://mumbai.polygonscan.com/address/0x262997A234F193182ab87A63d4AE2D7273BE7e21#readContract)
 
      - operatorWalletAddress: `0x2b5Fc7f001a173D49B29e34993bB2feF41Ccd803`
 
    - mainnet:
 
      - USDC: `0x2791bca1f2de4661ed88a30c99a7a9449aa84174`
-     - TravelSaver: `0x6Bd249181BAdf2a389296D68f80A8B1c74fDDAC1`
-     - [verified](https://polygonscan.com/address/0x6Bd249181BAdf2a389296D68f80A8B1c74fDDAC1#code)
+     - TravelSaver: `0x207856B02b264b7C60fdE304658d683184254330`
+     - [verified](https://polygonscan.com/address/0x207856B02b264b7C60fdE304658d683184254330#readContract)
 
-     - DAI: `0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063`
-     - TravelSaver: `0xa15282Fd8e39b3bF7c7bf94753c4a9Aa52060226`
-     - [verified](https://polygonscan.com/address/0xa15282Fd8e39b3bF7c7bf94753c4a9Aa52060226#code)
-
-     - operatorWalletAddress: `0x702D8Ef9255505378922F4A0206542a7DcF6947B`
-
-3. - BSC
-
-   - testnet:
-
-     - USDT: `0x337610d27c682E347C9cD60BD4b3b107C9d34dDd`
-     - TravelSaver: `0x54713127daf2bFD5129C980Ea800E3fCD616B547`
-     - [verified](https://testnet.bscscan.com/address/0x54713127daf2bFD5129C980Ea800E3fCD616B547#code)
-
-     - BUSD: `0xeD24FC36d5Ee211Ea25A80239Fb8C4Cfd80f12Ee`
-     - TravelSaver: `0x62686d2a160a649d5F4EaB43F0964E6e8a6281C1`
-     - [verified](https://testnet.bscscan.com/address/0x62686d2a160a649d5F4EaB43F0964E6e8a6281C1#code)
-
-     - operatorWalletAddress: `0x2b5Fc7f001a173D49B29e34993bB2feF41Ccd803`
-
-   - mainnet:
-
-     - USDT: `0x55d398326f99059ff775485246999027b3197955`
-     - TravelSaver: `0x6Bd249181BAdf2a389296D68f80A8B1c74fDDAC1`
-     - [verified](https://bscscan.com/address/0x6Bd249181BAdf2a389296D68f80A8B1c74fDDAC1#code)
-
-     - BUSD: `0xe9e7cea3dedca5984780bafc599bd69add087d56`
-     - TravelSaver: `0xa15282Fd8e39b3bF7c7bf94753c4a9Aa52060226`
-     - [verified](https://bscscan.com/address/0xa15282Fd8e39b3bF7c7bf94753c4a9Aa52060226#code)
-
-     - operatorWalletAddress: `0x702D8Ef9255505378922F4A0206542a7DcF6947B`
+     - operatorWalletAddress: `0x383bC9Eae0DfAEC56d10a12BaF23603701A4A004`
 
 ## TravelSaver constructor params:
 
-- `address _IERC20` USD ERC20 network specific address.
-- `address _operatorWallet` wallet address where all funds will be transfered when saving plan is sucessful.
+- `address _IERC20` hardcoded address of the ERC20 EUR/USD PEGGED and NON DEFLACTIONARY token that serves a currency of the contract
+- `address _operatorWallet` wallet address where all funds will be transfered when saving plan is sucessful, hardcoded address of the operator wallet where funds are send from travel-plan as external multisg wallet that is opearated and solely responsible for by the ticket issuer
 
 ## Re-Deploying to a networks, tests and scripts:
 
@@ -190,7 +160,7 @@ Follow the above diagram:
 
 - `npx hardhat run --network {NETWORK} scripts/deploy-{NETWORK}-{BRANCH}-{ERC20}.ts`
 
-## Architecture: all services
+## Architecture: all services off and onchain
 
 <br/>
 <p align="center">
@@ -207,3 +177,9 @@ Follow the above diagram:
 </a>
 </p>
 <br/>
+
+# LICENSE
+
+Copyright (c) 2023-present Flywallet Inc.
+
+Licensed under [Apache-2.0](./LICENSE)

@@ -2,7 +2,7 @@ import { ethers } from "hardhat";
 
 const OWNER_ADDRESS = process.env.PUBLIC_ADDRESS_PROD;
 const cEUR = "0xd8763cba276a3738e6de85b4b3bf5fded6d6ca73";
-const operatorWalletAddress = "0x702D8Ef9255505378922F4A0206542a7DcF6947B";
+const operatorWalletAddress = "0x2e7997BaF30435d70b5a2EC3eA334975b16C5204";
 
 async function main() {
   const deployer = OWNER_ADDRESS;
